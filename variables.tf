@@ -113,3 +113,9 @@ variable "tags" {
   description = "Map of tags to be applied to all resources."
   type        = map(string)
 }
+
+variable "create_source_bucket" {
+  type = bool
+  default = false
+  description = "Create a source bucket and policy to allow access"
+}

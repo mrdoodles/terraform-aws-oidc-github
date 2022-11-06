@@ -16,6 +16,8 @@ locals {
   github_organizations = [for repo in var.github_repositories : split("/", repo)[0]]
   oidc_provider_arn    = var.enabled ? (var.create_oidc_provider ? aws_iam_openid_connect_provider.github[0].arn : data.aws_iam_openid_connect_provider.github[0].arn) : ""
   partition            = data.aws_partition.current.partition
+  randomised_role_name = "NEED RANDOM AND RANDOM STRING"
+  source_bucket_count = var.create_source_bucket ? 0 : 1
 }
 
 resource "aws_iam_role" "github" {
